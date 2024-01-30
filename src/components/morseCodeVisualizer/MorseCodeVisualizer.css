@@ -1,0 +1,145 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+} */
+
+body {
+  background-color: #f8f8f8;
+}
+
+.message {
+  font-size: 6rem;
+  text-align: center;
+  margin: 0.1em 0 0 0;
+  color: #1D3756;
+}
+
+button {
+	background-color:#6ebe4f;
+	border-radius:28px;
+	border:1px solid #6ebe4f;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:2rem;
+	padding:0.5em 1.2em;
+	text-decoration:none;
+  text-shadow:0px 1px 0px #6ebe4f;
+  margin-right: 0.8em;
+}
+button:hover {
+  background-color:#1d3756;
+	border:1px solid #1d3756;
+	text-shadow:0px 1px 0px #1d3756;
+}
+button:active {
+	position:relative;
+	top:1px;
+}
+
+
+.node {
+  display: block;
+  margin: 0 auto 0 auto;
+}
+
+.tree-container {
+  width: 100%;
+}
+
+.tree-row {
+  display: flex;
+  margin: 0.8em 0;
+  max-height: 10vh;
+}
+
+.one .tree-node {
+  width: 100%;
+  text-align: center;
+}
+
+.one .node {
+  height: 100%;
+}
+
+.two .tree-node {
+  width: 50%;
+}
+
+.two .node {
+  height: 100%;
+}
+
+.three .tree-node {
+  width: 25%;
+}
+
+.three .node {
+  height: 100%;
+}
+
+.four .tree-node {
+  width: 12.5%;
+}
+
+.four .node {
+  height: 100%;
+}
+
+.five .tree-node {
+  width: 6.25%;
+}
+
+.five .node {
+  height: 100%;
+}
+
+.six .tree-node {
+  width: 3.12%;
+}
+
+.six .node {
+  height: 100%;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
