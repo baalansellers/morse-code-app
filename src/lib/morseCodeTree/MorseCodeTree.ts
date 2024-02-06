@@ -12,14 +12,14 @@ export interface MorseCodeTreeNodeDictionary {
 }
 
 export class MorseCodeTreeNode {
-  public ref: React.RefObject<SVGAElement>;
+  public ref: React.RefObject<SVGSVGElement>;
 
   constructor(
     //Payload
     public payload: MorseCodeTreeNodePayload,
 
     //Method to generate a reference to latch to when drawing lines later
-    public refGen: () => React.RefObject<SVGAElement>,
+    public refGen: () => React.RefObject<SVGSVGElement>,
 
     //Structure
     public left?: MorseCodeTreeNode,
@@ -34,9 +34,9 @@ class MorseCodeTree {
   private _currentNode: MorseCodeTreeNode;
   private _cacheDictionary: MorseCodeTreeNodeDictionary | null;
   private _cacheArray: MorseCodeTreeNode[] | null;
-  private _refGen: () => React.RefObject<SVGAElement>;
+  private _refGen: () => React.RefObject<SVGSVGElement>;
 
-  constructor(refGen: () => React.RefObject<SVGAElement>, init?: boolean) {
+  constructor(refGen: () => React.RefObject<SVGSVGElement>, init?: boolean) {
     this._rootNode = new MorseCodeTreeNode({id: "start", value: "start", offset: 0 }, refGen);
     this._currentNode = this._rootNode;
     this._cacheDictionary = null;

@@ -25,7 +25,7 @@ export interface TimerNodeProps {
 
 const TimerNode = React.forwardRef<
   SVGSVGElement,
-  TimerNodeProps & HTMLAttributes<SVGSVGElement>
+  TimerNodeProps & HTMLAttributes<SVGAElement>
 >(
   (props, ref): JSX.Element => {
     /*
