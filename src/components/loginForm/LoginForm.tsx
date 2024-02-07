@@ -1,7 +1,4 @@
-import React from "react"
-import { CssVarsProvider} from '@mui/joy/styles';
-import GlobalStyles from '@mui/joy/GlobalStyles';
-import CssBaseline from '@mui/joy/CssBaseline';
+import React from "react";
 import Box from '@mui/joy/Box';
 import Button from '@mui/joy/Button';
 import Checkbox from '@mui/joy/Checkbox';
@@ -12,6 +9,7 @@ import Link from '@mui/joy/Link';
 import Input from '@mui/joy/Input';
 import Typography from '@mui/joy/Typography';
 import Stack from '@mui/joy/Stack';
+import { useColorScheme } from '@mui/joy/styles';
 
 interface FormElements extends HTMLFormControlsCollection {
     email: HTMLInputElement;
@@ -24,35 +22,22 @@ interface SignInFormElement extends HTMLFormElement {
   }
 
 const Login: React.FC = () => {
+  const {setMode} = useColorScheme()
+
+  setMode('light');
+
     return (
-        <CssVarsProvider defaultMode="dark" disableTransitionOnChange>
-          <CssBaseline />
-          <GlobalStyles
-            styles={{
-              ':root': {
-                '--Collapsed-breakpoint': '769px', // form will stretch when viewport is below `769px`
-                '--Cover-width': '50vw', // must be `vw` only
-                '--Form-maxWidth': '800px',
-                '--Transition-duration': '0.4s', // set to `none` to disable transition
-              },
-            }}
-          />
+      <>
           <Box
-            sx={(theme) => ({
-              width:
-                'clamp(100vw - var(--Cover-width), (var(--Collapsed-breakpoint) - 100vw) * 999, 100vw)',
+            sx={() => ({
+              width: '100vw',
               transition: 'width var(--Transition-duration)',
               transitionDelay: 'calc(var(--Transition-duration) + 0.1s)',
-              position: 'relative',
-              zIndex: 1,
               display: 'flex',
               justifyContent: 'center',
               alignItems:  'center',
-              backdropFilter: 'blur(12px)',
-              backgroundColor: 'rgba(255 255 255 / 0.2)',
-              [theme.getColorSchemeSelector('dark')]: {
-                backgroundColor: 'rgba(19 19 24 / 0.4)',
-              },
+              backgroundColor: '#6ebe4f',
+              height: '100vh'
             })}
           >
             {/* <Box
@@ -66,42 +51,43 @@ const Login: React.FC = () => {
                 px: 2,
               }}
             > */}
+
+          <Box
+            component='main'
+            sx={() => ({
+              minHeight: '400px',
+              width: 'clamp(var(--Form-maxWidth), (var(--Collapsed-breakpoint) - 100vw) * 999, 100%)',
+              maxWidth: '100%',
+              backgroundColor: '#fff',
+              px: 2,
+            })}
+          >
              
-              <Box
+              {/* <Box
                 component="main"
                 sx={{
-                  my: 'auto',
-                  py: 2,
-                  pb: 5,
-                 display: 'flex',
-                 flexDirection: 'column',
-                 gap: 2,
+                 minHeight: '60dvh',
                  width: 400,
                   maxWidth: '100%',
-                  mx: 'auto',
-                  borderRadius: 'sm',
-                  '& form': {
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: 2,
-                  },
                   [`& .${formLabelClasses.asterisk}`]: {
                     visibility: 'hidden',
                   },
+                  backgroundColor: '#FFF'
                 }}
-              >
-                <Stack gap={4} sx={{ mb: 2 }}>
-                  <Stack gap={1}>
-                    <Typography level="h3">Sign in</Typography>
-                    <Typography level="body-sm">
-                      New to company?{' '}
-                      <Link href="#replace-with-a-link" level="title-sm">
-                        Sign up!
-                      </Link>
-                    </Typography>
-                  </Stack>
-                  
-                </Stack>
+              > */}
+            <Stack gap={4} sx={{ mb: 2 }}>
+              <Stack gap={1}>
+                <Typography level="h1"
+                >Sign in</Typography>
+                <Typography level="body-sm">
+                  New to company?{' '}
+                  <Link href="#replace-with-a-link" level="title-sm">
+                    Sign up!
+                  </Link>
+                </Typography>
+              </Stack>
+
+            </Stack>
                 <Divider
                   sx={(theme) => ({
                     [theme.getColorSchemeSelector('light')]: {
@@ -163,7 +149,7 @@ const Login: React.FC = () => {
               </Box>
             {/* </Box> */}
           </Box>
-        </CssVarsProvider>
+          </>
       );
     }
      
